@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_17_202939) do
+ActiveRecord::Schema.define(version: 2022_01_17_203635) do
 
   create_table "atribute_for_batles", force: :cascade do |t|
     t.string "atack"
@@ -19,6 +19,13 @@ ActiveRecord::Schema.define(version: 2022_01_17_202939) do
     t.string "total_stamina"
     t.string "cp_max"
     t.string "hp_max"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string "one"
+    t.string "two"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
