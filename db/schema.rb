@@ -46,24 +46,16 @@ ActiveRecord::Schema.define(version: 2022_01_18_175022) do
     t.boolean "is_new"
     t.boolean "not_gettable"
     t.boolean "future_evolve"
+    t.string "type_one"
+    t.string "type_two"
     t.integer "atribute_for_batle_id", null: false
-    t.integer "type_id", null: false
     t.integer "family_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["atribute_for_batle_id"], name: "index_pokemons_on_atribute_for_batle_id"
     t.index ["family_id"], name: "index_pokemons_on_family_id"
-    t.index ["type_id"], name: "index_pokemons_on_type_id"
-  end
-
-  create_table "types", force: :cascade do |t|
-    t.string "one"
-    t.string "two"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "pokemons", "atribute_for_batles"
   add_foreign_key "pokemons", "families"
-  add_foreign_key "pokemons", "types"
 end
