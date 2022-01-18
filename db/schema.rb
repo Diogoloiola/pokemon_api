@@ -24,8 +24,8 @@ ActiveRecord::Schema.define(version: 2022_01_17_204111) do
   end
 
   create_table "families", force: :cascade do |t|
-    t.string "generation"
-    t.string "cross_gen"
+    t.integer "generation"
+    t.boolean "cross_gen"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
