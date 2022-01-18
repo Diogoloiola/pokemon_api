@@ -2,20 +2,20 @@ class CreatePokemons < ActiveRecord::Migration[6.1]
   def change
     create_table :pokemons do |t|
       t.string :name
-      t.boolean :evolved
+      t.integer :evolved
       t.string :url_image
       t.integer :evolution_stage
-      t.boolean :legendary
-      t.boolean :aquireable
-      t.boolean :spawns
-      t.boolean :regional
-      t.boolean :raidable
+      t.integer :legendary
+      t.integer :aquireable
+      t.integer :spawns
+      t.integer :regional
+      t.integer :raidable
       t.integer :hatchable
-      t.boolean :shiny
-      t.boolean :nest
-      t.boolean :is_new
-      t.boolean :not_gettable
-      t.boolean :future_evolve
+      t.integer :shiny
+      t.integer :nest
+      t.integer :is_new
+      t.integer :not_gettable
+      t.integer :future_evolve
       t.string :type_one
       t.string :type_two
       t.references :atribute_for_batle, null: false, foreign_key: true
