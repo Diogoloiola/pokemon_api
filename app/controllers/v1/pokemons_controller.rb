@@ -3,7 +3,10 @@ module V1
     before_action :set_pokemon, only: %i[show update destroy]
 
     def index
-      @pokemons = Pokemon.includes(%i[family atribute_for_batle]).all
+      page = params[:page] ? params[:page].to_i : 0
+      per_page = params[:per_page] ? params[:per_page].to_i : 50
+
+      @pokemons = Pokemon.includes(%i[family atribute_for_batle]).offset(page * per_page).limit(per_page)
     end
 
     def show; end
