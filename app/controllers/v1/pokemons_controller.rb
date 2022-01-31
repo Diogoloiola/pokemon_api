@@ -33,6 +33,11 @@ module V1
       @pokemon.destroy
     end
 
+    def family
+      @pokemons = Pokemon.where(family_id: params[:id])
+      render :index
+    end
+
     private
 
     def set_pokemon
