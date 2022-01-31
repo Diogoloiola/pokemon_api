@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe AtributeForbattle, type: :model do
+RSpec.describe AtributeForBattle, type: :model do
   it { should validate_presence_of(:atack) }
   it { should validate_presence_of(:stamina) }
   it { should validate_presence_of(:defense) }
