@@ -9,7 +9,10 @@ RSpec.describe '/v1/families', type: :request do
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      cross_gen: false,
+      generation: 110
+    }
   end
 
   let(:valid_headers) do
@@ -45,7 +48,7 @@ RSpec.describe '/v1/families', type: :request do
         post v1_families_url,
              params: { family: valid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
-        expect(response.content_type).to match(a_string_including('application/json'))
+        expect(response.content_type).to match(a_string_including('application/json; charset=utf-8'))
       end
     end
 
@@ -61,7 +64,7 @@ RSpec.describe '/v1/families', type: :request do
         post v1_families_url,
              params: { family: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
@@ -89,7 +92,7 @@ RSpec.describe '/v1/families', type: :request do
         patch v1_family_url(family),
               params: { family: new_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to match(a_string_including('application/json'))
+        expect(response.content_type).to match(a_string_including('application/json; charset=utf-8'))
       end
     end
 
@@ -99,7 +102,7 @@ RSpec.describe '/v1/families', type: :request do
         patch v1_family_url(family),
               params: { family: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end

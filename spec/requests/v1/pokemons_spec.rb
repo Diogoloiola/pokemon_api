@@ -29,7 +29,27 @@ RSpec.describe '/v1/pokemons', type: :request do
   end
 
   let(:invalid_attributes) do
-    skip('Add a hash of attributes invalid for your model')
+    {
+      name: 'Bulbasaur',
+      evolved: 0,
+      url_image: 1,
+      evolution_stage: 1,
+      legendary: 0,
+      aquireable: 1,
+      spawns: 1,
+      regional: 0,
+      raidable: 0,
+      hatchable: 5,
+      shiny: 0,
+      nest: 1,
+      is_new: 0,
+      not_gettable: 0,
+      future_evolve: 0,
+      type_one: 'grass',
+      type_two: 'poison',
+      atribute_for_battle_id: atribute_for_battle.id,
+      family_id: nil
+    }
   end
   let(:valid_headers) do
     {}
@@ -64,7 +84,7 @@ RSpec.describe '/v1/pokemons', type: :request do
         post v1_pokemons_url,
              params: { pokemon: valid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:created)
-        expect(response.content_type).to match(a_string_including('application/json'))
+        expect(response.content_type).to match(a_string_including('application/json; charset=utf-8'))
       end
     end
 
@@ -80,7 +100,7 @@ RSpec.describe '/v1/pokemons', type: :request do
         post v1_pokemons_url,
              params: { pokemon: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
@@ -88,7 +108,27 @@ RSpec.describe '/v1/pokemons', type: :request do
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        {
+          name: 'Bulbasaur',
+          evolved: 1,
+          url_image: 1,
+          evolution_stage: 1,
+          legendary: 0,
+          aquireable: 1,
+          spawns: 1,
+          regional: 0,
+          raidable: 0,
+          hatchable: 5,
+          shiny: 0,
+          nest: 1,
+          is_new: 0,
+          not_gettable: 0,
+          future_evolve: 0,
+          type_one: 'grass',
+          type_two: 'poison',
+          atribute_for_battle_id: atribute_for_battle.id,
+          family_id: family.id
+        }
       end
 
       it 'updates the requested v1_pokemon' do
@@ -96,6 +136,7 @@ RSpec.describe '/v1/pokemons', type: :request do
         patch v1_pokemon_url(pokemon),
               params: { pokemon: new_attributes }, headers: valid_headers, as: :json
         pokemon.reload
+        expect(pokemon.evolved).to eql(1)
       end
 
       it 'renders a JSON response with the v1_pokemon' do
@@ -103,7 +144,7 @@ RSpec.describe '/v1/pokemons', type: :request do
         patch v1_pokemon_url(pokemon),
               params: { pokemon: new_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:ok)
-        expect(response.content_type).to match(a_string_including('application/json'))
+        expect(response.content_type).to match(a_string_including('application/json; charset=utf-8'))
       end
     end
 
@@ -113,7 +154,7 @@ RSpec.describe '/v1/pokemons', type: :request do
         patch v1_pokemon_url(pokemon),
               params: { pokemon: invalid_attributes }, headers: valid_headers, as: :json
         expect(response).to have_http_status(:unprocessable_entity)
-        expect(response.content_type).to eq('application/json')
+        expect(response.content_type).to eq('application/json; charset=utf-8')
       end
     end
   end
