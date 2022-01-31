@@ -1,4 +1,4 @@
 class Pokemon < ApplicationRecord
   belongs_to :family
-  belongs_to :atribute_for_batle
+  belongs_to :atribute_for_battle
 end

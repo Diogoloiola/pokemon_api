@@ -15,7 +15,7 @@ FactoryBot.define do
     is_new { true }
     not_gettable { true }
     future_evolve { true }
-    atribute_for_batle { nil }
+    atribute_for_battle { nil }
     type { nil }
     family { nil }
   end

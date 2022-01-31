@@ -6,7 +6,7 @@ module V1
       page = params[:page] ? params[:page].to_i : 0
       per_page = params[:per_page] ? params[:per_page].to_i : 50
 
-      @pokemons = Pokemon.includes(%i[family atribute_for_batle]).offset(page * per_page).limit(per_page)
+      @pokemons = Pokemon.includes(%i[family atribute_for_battle]).offset(page * per_page).limit(per_page)
     end
 
     def show; end

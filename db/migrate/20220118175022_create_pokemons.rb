@@ -18,7 +18,7 @@ class CreatePokemons < ActiveRecord::Migration[6.1]
       t.integer :future_evolve
       t.string :type_one
       t.string :type_two
-      t.references :atribute_for_batle, null: false, foreign_key: true
+      t.references :atribute_for_battle, null: false, foreign_key: true
       t.references :family, null: false, foreign_key: true
 
       t.timestamps

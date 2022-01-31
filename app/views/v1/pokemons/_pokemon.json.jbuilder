@@ -5,12 +5,12 @@ json.family do
   json.cross_gen pokemon.family.cross_gen
   json.generation pokemon.family.generation
 end
-json.atributes_for_batle do
-  json.atack pokemon.atribute_for_batle.atack
-  json.stamina pokemon.atribute_for_batle.stamina
-  json.total_stamina pokemon.atribute_for_batle.total_stamina
-  json.defense pokemon.atribute_for_batle.defense
-  json.atack pokemon.atribute_for_batle.atack
-  json.cp_max pokemon.atribute_for_batle.cp_max
-  json.hp_max pokemon.atribute_for_batle.hp_max
+json.atributes_for_battle do
+  json.atack pokemon.atribute_for_battle.atack
+  json.stamina pokemon.atribute_for_battle.stamina
+  json.total_stamina pokemon.atribute_for_battle.total_stamina
+  json.defense pokemon.atribute_for_battle.defense
+  json.atack pokemon.atribute_for_battle.atack
+  json.cp_max pokemon.atribute_for_battle.cp_max
+  json.hp_max pokemon.atribute_for_battle.hp_max
 end

@@ -36,7 +36,7 @@ pokemons = xlsx.parse(headers)
 
 Pokemon.destroy_all
 Family.destroy_all
-AtributeForBatle.destroy_all
+AtributeForbattle.destroy_all
 
 pokemons.each do |pokemon|
   family = Family.where(id: pokemon['family_id'])
@@ -45,9 +45,9 @@ pokemons.each do |pokemon|
     family = Family.create!(cross_gen: pokemon[:cross_gen],
                             generation: pokemon[:generation])
   end
-  atributes_for_batle = AtributeForBatle.create!(atack: pokemon[:atack], stamina: pokemon[:stamina],
-                                                 defense: pokemon[:defense], total_stamina: pokemon[:stat_total],
-                                                 cp_max: pokemon[:cp], hp_max: pokemon[:hp])
+  atributes_for_battle = AtributeForbattle.create!(atack: pokemon[:atack], stamina: pokemon[:stamina],
+                                                   defense: pokemon[:defense], total_stamina: pokemon[:stat_total],
+                                                   cp_max: pokemon[:cp], hp_max: pokemon[:hp])
 
   Pokemon.create!(name: pokemon[:name], evolved: pokemon[:evolved], url_image: pokemon[:url_image],
                   evolution_stage: pokemon[:evolution_stage], legendary: pokemon[:legendary],
@@ -55,5 +55,5 @@ pokemons.each do |pokemon|
                   raidable: pokemon[:raidable], hatchable: pokemon[:hatchable], shiny: pokemon[:shiny],
                   nest: pokemon[:nest], is_new: pokemon[:is_new], not_gettable: pokemon[:not_gettable],
                   future_evolve: pokemon[:future_evolve], type_one: pokemon[:type_one], type_two: pokemon[:type_two],
-                  atribute_for_batle_id: atributes_for_batle.id, family_id: family.id)
+                  atribute_for_battle_id: atributes_for_battle.id, family_id: family.id)
 end

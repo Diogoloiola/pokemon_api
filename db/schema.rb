@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema.define(version: 2022_01_18_175022) do
 
-  create_table "atribute_for_batles", force: :cascade do |t|
+  create_table "atribute_for_battles", force: :cascade do |t|
     t.integer "atack"
     t.integer "stamina"
     t.integer "defense"
@@ -48,14 +48,14 @@ ActiveRecord::Schema.define(version: 2022_01_18_175022) do
     t.integer "future_evolve"
     t.string "type_one"
     t.string "type_two"
-    t.integer "atribute_for_batle_id", null: false
+    t.integer "atribute_for_battle_id", null: false
     t.integer "family_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["atribute_for_batle_id"], name: "index_pokemons_on_atribute_for_batle_id"
+    t.index ["atribute_for_battle_id"], name: "index_pokemons_on_atribute_for_battle_id"
     t.index ["family_id"], name: "index_pokemons_on_family_id"
   end
 
-  add_foreign_key "pokemons", "atribute_for_batles"
+  add_foreign_key "pokemons", "atribute_for_battles"
   add_foreign_key "pokemons", "families"
 end

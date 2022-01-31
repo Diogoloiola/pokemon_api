@@ -1,6 +1,6 @@
-class CreateAtributeForBatles < ActiveRecord::Migration[6.1]
+class CreateAtributeForBattles < ActiveRecord::Migration[6.1]
   def change
-    create_table :atribute_for_batles do |t|
+    create_table :atribute_for_battles do |t|
       t.integer :atack
       t.integer :stamina
       t.integer :defense
