@@ -45,7 +45,9 @@ module V1
     end
 
     def pokemon_params
-      params.fetch(:pokemon, {})
+      params.require(:pokemon).permit(:name, :evolved, :url_image, :evolution_stage, :legendary, :aquireable, :spawns,
+                                      :regional, :raidable, :hatchable, :shiny, :nest, :is_new, :not_gettable,
+                                      :future_evolve, :type_one, :type_two, :atribute_for_battle_id, :family_id)
     end
   end
 end
