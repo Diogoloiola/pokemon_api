@@ -33,7 +33,7 @@ module V1
     private
 
     def set_atributes_for_battle
-      @atributes_for_battle = AtributeForbattle.find(params[:id])
+      @atributes_for_battle = AtributeForBattle.find(params[:id])
     end
 
     def atributes_for_battle_params
