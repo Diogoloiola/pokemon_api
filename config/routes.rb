@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  namespace :v1 do
-    resources :families
-  end
   namespace :v1, defaults: { format: :json } do
-    resources :pokemons do
-    end
+    resources :pokemons
+    resources :families
+    resources :atributes_for_battles
     get 'pokemons/family/:id', to: 'pokemons#family'
   end
 end
